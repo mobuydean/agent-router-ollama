@@ -218,12 +218,3 @@ node index.js
 
 ---
 
-## 开源仓库建议
-
-将本项目开源到 GitHub 时，建议额外补充：
-
-1. `LICENSE` 文件（例如 MIT / Apache-2.0 / BSD 等，视你需求而定）。
-2. `CONTRIBUTING.md`（如果你希望接受社区贡献）。
-3. 示例截图或录屏（放在 `docs/` 或 `assets/` 目录），展示一次完整交互流程。
-
-本仓库当前 README 已按照 GitHub 展示进行整理，可以直接使用。你只需要把代码推送到自己的 GitHub 仓库即可。
