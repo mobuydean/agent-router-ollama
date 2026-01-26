@@ -1,6 +1,7 @@
 import { plannerAgent } from './planner.js';
 import { codeAgent } from './codeAgent.js';
 import { reasonAgent } from './reasonAgent.js';
+import { toolAgent } from './toolAgent.js';
 import { visionAgent } from './visionAgent.js';
 import { writerAgent } from './writer.js';
 
@@ -34,6 +35,11 @@ export class AgentRouter {
         console.log('路由到 Vision Agent...');
         agentName = 'Vision Agent';
         agentOutput = await visionAgent(userRequest, plan, imagePaths);
+        break;
+      case 'TOOL_AGENT':
+        console.log('路由到 Tool Agent...');
+        agentName = 'Tool Agent';
+        agentOutput = await toolAgent(plan);
         break;
       default:
         console.log(`未知决策 "${decision}"，回退到 Reason Agent...`);

@@ -17,6 +17,7 @@
   - Code Agent（代码生成 / 调试）
   - Reason Agent（复杂推理）
   - Vision Agent（图像 / UI 分析）
+  - Tool-Calling Agent（执行本地 Shell 命令）
   - Writer（最终回答整合）
 - **全流程中文提示词**：更适合中文场景下的行为控制。
 - 纯本地部署：依赖本地 Ollama，模型和数据都在自己的机器上。
@@ -56,6 +57,10 @@
 - **Vision Agent（`qwen3-vl:32b`）**
   - 负责图像、界面、视觉内容分析
   - 当前实现支持通过 `imagePaths` 传入本地图片路径
+
+- **Tool-Calling Agent**
+  - 负责执行本地 Shell 命令，例如文件操作、系统信息查询等。
+  - 为安全起见，仅允许执行白名单内的命令（如 `ls`, `pwd`, `echo` 等）。
 
 - **Writer（`qwen3:8b`）**
   - 汇总 Planner 和专业 Agent 的中间结果
@@ -170,6 +175,7 @@ node index.js
 │   ├── codeAgent.js     # Code Agent（代码生成 / 调试）
 │   ├── reasonAgent.js   # Reason Agent（复杂推理）
 │   ├── visionAgent.js   # Vision Agent（视觉分析）
+│   ├── toolAgent.js     # Tool-Calling Agent（执行 Shell 命令）
 │   └── writer.js        # Writer Agent（最终回答整合）
 ├── utils
 │   └── ollamaClient.js  # Ollama JS SDK 简单封装
